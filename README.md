@@ -84,7 +84,7 @@ PrismKart/
 ![Screenshot](image.png)
 
 ## Live Demo
-[View Live](https://prism-kart-oqh9.vercel.app/)
+[View Live](https://9-prismkart.vercel.app/) 
 
 ## How to Run
 1. Download or clone this repository.
