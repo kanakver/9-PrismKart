@@ -258,11 +258,11 @@ const cartCount = document.getElementById('cartCount');
 const cartTotal = document.getElementById('cartTotal');
 
 function addToCart(product) {
-  const idx = cart.findIndex(item => item.name === product.name);
-  if (idx > -1) {
-    cart[idx].qty += 1;
+  const existingItem = cart.find(item => item.name === product.name);
+  if (existingItem) {
+    existingItem.quantity++;
   } else {
-    cart.push({ ...product, qty: 1 });
+    cart.push({ ...product, quantity: 1 });
   }
   updateCartUI();
   showCart();
@@ -274,31 +274,53 @@ function removeFromCart(name) {
 }
 
 function updateCartUI() {
-  cartItemsDiv.innerHTML = '';
-  if (cart.length === 0) {
-    cartItemsDiv.innerHTML = '<p style="text-align:center; color:#888;">Your cart is empty.</p>';
-  } else {
-    cart.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'cart-item';
-      div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <div class="cart-item-info">
-          <div class="cart-item-title">${item.name}</div>
-          <div class="cart-item-price">$${item.price}</div>
-          <div class="cart-item-qty">Qty: ${item.qty}</div>
-        </div>
-        <button class="cart-item-remove" title="Remove">❌</button>
-      `;
-      div.querySelector('.cart-item-remove').addEventListener('click', () => removeFromCart(item.name));
-      cartItemsDiv.appendChild(div);
+  const cartItems = document.getElementById('cartItems');
+  const cartCount = document.getElementById('cartCount');
+  const cartTotal = document.getElementById('cartTotal');
+  
+  // Update cart count
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = totalItems;
+  
+  // Update cart items
+  cartItems.innerHTML = '';
+  let total = 0;
+  
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    const itemEl = document.createElement('div');
+    itemEl.className = 'cart-item';
+    itemEl.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-item-info">
+        <h3 class="cart-item-title">${item.name}</h3>
+        <p class="cart-item-price">$${item.price}</p>
+        <span class="cart-item-qty">Qty: ${item.quantity}</span>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">×</button>
+    `;
+    cartItems.appendChild(itemEl);
+  });
+  
+  // Update total
+  cartTotal.textContent = total.toFixed(2);
+  
+  // Update cart footer with checkout button
+  const cartFooter = document.querySelector('.cart-footer');
+  cartFooter.innerHTML = `
+    <div>Total: $<span id="cartTotal">${total.toFixed(2)}</span></div>
+    ${total > 0 ? '<button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>' : ''}
+  `;
+  
+  // Add checkout button event listener
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      // Save cart to localStorage before redirecting
+      localStorage.setItem('cart', JSON.stringify(cart));
+      window.location.href = 'checkout.html';
     });
   }
-  // Update cart count and total
-  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-  const totalPrice = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
-  cartCount.textContent = totalQty;
-  cartTotal.textContent = totalPrice.toFixed(2);
 }
 
 function showCart() {

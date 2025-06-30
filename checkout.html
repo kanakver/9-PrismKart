@@ -9,68 +9,81 @@
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <h1>PrismKart</h1>
-      <nav>
-        <a href="index.html" class="nav-link">← Back to Shopping</a>
-      </nav>
-    </div>
+    <h1>PrismKart</h1>
+    <a href="index.html" class="back-link">← Back to Shopping</a>
   </header>
-
+  
   <main class="checkout-container">
-    <div class="checkout-content">
-      <!-- Cart Items Section -->
-      <div class="cart-section">
-        <h2>Your Cart Items</h2>
-        <div id="cartItems" class="cart-items-list">
-          <!-- Cart items will be dynamically populated here -->
-        </div>
-      </div>
-
+    <div class="checkout-grid">
       <!-- Order Summary Section -->
-      <div class="order-summary">
+      <section class="order-summary">
         <h2>Order Summary</h2>
-        <div class="summary-details">
+        <div id="checkoutItems" class="checkout-items">
+          <!-- Cart items will be inserted here -->
+        </div>
+        <div class="summary-totals">
           <div class="summary-row">
-            <span>Subtotal:</span>
+            <span>Subtotal</span>
             <span id="subtotal">$0.00</span>
           </div>
           <div class="summary-row">
-            <span>Shipping:</span>
+            <span>Shipping</span>
             <span id="shipping">$0.00</span>
-            <span id="shipping-badge" class="shipping-badge hidden">FREE</span>
           </div>
           <div class="summary-row total">
-            <span>Total:</span>
+            <span>Total</span>
             <span id="total">$0.00</span>
           </div>
+          <div id="freeShippingMsg" class="free-shipping-msg hidden">
+            🎉 You've got free shipping!
+          </div>
         </div>
-        
-        <button id="placeOrderBtn" class="place-order-btn" disabled>
-          Place Order
-        </button>
-      </div>
+      </section>
+
+      <!-- Shipping Information Section -->
+      <section class="shipping-info">
+        <h2>Shipping Information</h2>
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" required>
+            </div>
+            <div class="form-group">
+              <label for="pincode">PIN Code</label>
+              <input type="text" id="pincode" required>
+            </div>
+          </div>
+          <button type="submit" class="place-order-btn">Place Order</button>
+        </form>
+      </section>
     </div>
   </main>
 
   <!-- Success Modal -->
-  <div id="successModal" class="success-modal hidden">
-    <div class="success-content">
-      <div class="success-icon">✅</div>
+  <div id="successModal" class="modal hidden">
+    <div class="modal-content success-modal">
+      <span id="closeModal" class="close">&times;</span>
+      <div class="success-icon">✓</div>
       <h2>Order Placed Successfully!</h2>
-      <p>Thank you for your purchase. Your order has been confirmed.</p>
-      <p class="order-number">Order #<span id="orderNumber"></span></p>
-      <button id="continueShopping" class="continue-btn">Continue Shopping</button>
-    </div>
-  </div>
-
-  <!-- Empty Cart Message -->
-  <div id="emptyCartMessage" class="empty-cart hidden">
-    <div class="empty-cart-content">
-      <div class="empty-icon">🛒</div>
-      <h2>Your cart is empty</h2>
-      <p>Add some products to your cart to proceed with checkout.</p>
-      <a href="index.html" class="shop-now-btn">Shop Now</a>
+      <p>Thank you for shopping with PrismKart.</p>
+      <a href="index.html" class="back-to-shop-btn">Continue Shopping</a>
     </div>
   </div>
 

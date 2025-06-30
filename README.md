@@ -1,14 +1,84 @@
-<h3> PrismKart Product Listing Page</h3>
+# PrismKart - Modern E-commerce Demo
 
-A responsive, interactive product listing page for the PrismKart e-commerce demo. Users can search, filter by category, and sort products by price — all with pure front-end JavaScript.
+A modern e-commerce demo application showcasing product listing, filtering, cart management, and checkout functionality.
 
 ## Features
-- Product grid with images, titles, prices, and categories
-- Real-time search bar
-- Category filter buttons (Men, Women, Accessories)
-- Price sorting (Low → High, High → Low)
-- Responsive design (Grid/Flexbox)
-- Modal popup for product details
+
+- **Product Listing**
+  - Grid layout with product cards
+  - Product images, names, prices, and categories
+  - Quick add to cart functionality
+  - Product details modal on click
+
+- **Filtering & Sorting**
+  - Category-based filtering
+  - Search by product name
+  - Price sorting (low to high / high to low)
+
+- **Shopping Cart**
+  - Slide-in cart sidebar
+  - Add/remove products
+  - Real-time quantity updates
+  - Cart total calculation
+  - Persistent cart data using localStorage
+
+- **Checkout Process**
+  - Detailed order summary
+  - Dynamic shipping cost calculation
+  - Free shipping on orders above ₹500
+  - Shipping information form
+  - Order success confirmation
+  - Responsive design for all devices
+
+## Technologies Used
+
+- HTML5
+- CSS3 (with Flexbox and Grid)
+- Vanilla JavaScript
+- LocalStorage for data persistence
+
+## Getting Started
+
+1. Clone the repository
+2. Open `index.html` in your browser
+3. Browse products, add them to cart
+4. Click "Proceed to Checkout" to test the checkout flow
+
+## Project Structure
+
+```
+PrismKart/
+├── index.html          # Main product listing page
+├── checkout.html       # Checkout page
+├── styles.css         # Main styles
+├── checkout.css       # Checkout-specific styles
+├── script.js         # Main JavaScript
+├── checkout.js       # Checkout functionality
+└── README.md         # Project documentation
+```
+
+## Features in Detail
+
+### Shopping Cart
+- Real-time cart updates
+- Quantity management
+- Persistent cart data
+- Smooth animations
+
+### Checkout Process
+- Order summary with product details
+- Dynamic shipping cost calculation
+- Free shipping threshold at ₹500
+- Form validation
+- Success confirmation modal
+
+## Future Enhancements
+
+- User authentication
+- Payment integration
+- Order history
+- Wishlist functionality
+- Product reviews and ratings
 
 ## Screenshot
 ![Screenshot](image.png)
