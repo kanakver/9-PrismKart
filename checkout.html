@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrismKart - Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>PrismKart</h1>
+      <nav>
+        <a href="index.html" class="nav-link">← Back to Shopping</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkout-container">
+    <div class="checkout-content">
+      <!-- Cart Items Section -->
+      <div class="cart-section">
+        <h2>Your Cart Items</h2>
+        <div id="cartItems" class="cart-items-list">
+          <!-- Cart items will be dynamically populated here -->
+        </div>
+      </div>
+
+      <!-- Order Summary Section -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-details">
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="subtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping:</span>
+            <span id="shipping">$0.00</span>
+            <span id="shipping-badge" class="shipping-badge hidden">FREE</span>
+          </div>
+          <div class="summary-row total">
+            <span>Total:</span>
+            <span id="total">$0.00</span>
+          </div>
+        </div>
+        
+        <button id="placeOrderBtn" class="place-order-btn" disabled>
+          Place Order
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="success-modal hidden">
+    <div class="success-content">
+      <div class="success-icon">✅</div>
+      <h2>Order Placed Successfully!</h2>
+      <p>Thank you for your purchase. Your order has been confirmed.</p>
+      <p class="order-number">Order #<span id="orderNumber"></span></p>
+      <button id="continueShopping" class="continue-btn">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- Empty Cart Message -->
+  <div id="emptyCartMessage" class="empty-cart hidden">
+    <div class="empty-cart-content">
+      <div class="empty-icon">🛒</div>
+      <h2>Your cart is empty</h2>
+      <p>Add some products to your cart to proceed with checkout.</p>
+      <a href="index.html" class="shop-now-btn">Shop Now</a>
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+</body>
+</html> 

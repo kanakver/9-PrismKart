@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrismKart - Product Listing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>PrismKart</h1>
+    <div class="controls">
+      <input type="text" id="searchBar" placeholder="Search products...">
+      <div class="categories">
+        <button class="category-btn" data-category="All">All</button>
+        <button class="category-btn" data-category="Men">Men</button>
+        <button class="category-btn" data-category="Women">Women</button>
+        <button class="category-btn" data-category="Accessories">Accessories</button>
+      </div>
+      <select id="sortPrice">
+        <option value="default">Sort by Price</option>
+        <option value="low-high">Low → High</option>
+        <option value="high-low">High → Low</option>
+      </select>
+      <div id="cartIcon" class="cart-icon">
+        🛒 <span id="cartCount">0</span>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="productGrid" class="product-grid"></div>
+  </main>
+  <div id="cartOverlay" class="cart-overlay hidden"></div>
+  <div id="cartSidebar" class="cart-sidebar hidden">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <span id="closeCart" class="close">&times;</span>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div>Total: $<span id="cartTotal">0</span></div>
+    </div>
+  </div>
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <img id="modalImg" src="" alt="Product Image">
+      <h2 id="modalTitle"></h2>
+      <p id="modalCategory"></p>
+      <p id="modalPrice"></p>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
