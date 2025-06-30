@@ -2,6 +2,12 @@
 
 A modern e-commerce demo application showcasing product listing, filtering, cart management, and checkout functionality.
 
+## Screenshot
+![Screenshot](image.png)
+
+## Live Demo
+[View Live](https://9-prismkart.vercel.app/) 
+
 ## Features
 
 - **Product Listing**
@@ -80,11 +86,7 @@ PrismKart/
 - Wishlist functionality
 - Product reviews and ratings
 
-## Screenshot
-![Screenshot](image.png)
 
-## Live Demo
-[View Live](https://9-prismkart.vercel.app/) 
 
 ## How to Run
 1. Download or clone this repository.
